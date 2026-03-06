@@ -31,12 +31,13 @@ public class PalindromeCheckerApp {
     }
 
     /**
-     * Checks if a string is a palindrome.
+     * Checks if a string is a palindrome (case insensitive).
      * @param str The string to check
      * @return true if palindrome, false otherwise
      */
     public static boolean checkPalindrome(String str) {
-        String reversed = new StringBuilder(str).reverse().toString();
-        return str.equals(reversed);
+        String cleaned = str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        String reversed = new StringBuilder(cleaned).reverse().toString();
+        return cleaned.equals(reversed);
     }
 }
