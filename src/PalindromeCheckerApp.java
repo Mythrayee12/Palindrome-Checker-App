@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Palindrome Checker Application - Entry point for the application.
  * This class demonstrates the basic execution flow of a Java program.
@@ -9,18 +11,23 @@ public class PalindromeCheckerApp {
 
     /**
      * Main method - Entry point of the application.
-     * Prints a welcome message and checks a hardcoded palindrome.
+     * Prints a welcome message and allows user input for palindrome check.
      *
      * @param args Command line arguments (not used)
      */
     public static void main(String[] args) {
         System.out.println("Welcome to Palindrome Checker App v1.0");
 
-        // Hardcoded palindrome check
-        String testString = "radar";
-        boolean isPalindrome = checkPalindrome(testString);
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Is '" + testString + "' a palindrome? " + isPalindrome);
+        System.out.print("Enter a string to check if it's a palindrome: ");
+        String userInput = scanner.nextLine();
+
+        boolean isPalindrome = checkPalindrome(userInput);
+
+        System.out.println("Is '" + userInput + "' a palindrome? " + isPalindrome);
+
+        scanner.close();
     }
 
     /**
