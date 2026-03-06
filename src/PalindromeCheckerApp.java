@@ -11,7 +11,7 @@ public class PalindromeCheckerApp {
 
     /**
      * Main method - Entry point of the application.
-     * Prints a welcome message and allows user input for palindrome check.
+     * Prints a welcome message and allows multiple palindrome checks.
      *
      * @param args Command line arguments (not used)
      */
@@ -20,13 +20,21 @@ public class PalindromeCheckerApp {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a string to check if it's a palindrome: ");
-        String userInput = scanner.nextLine();
+        while (true) {
+            System.out.print("Enter a string to check if it's a palindrome (or 'quit' to exit): ");
+            String userInput = scanner.nextLine();
 
-        boolean isPalindrome = checkPalindrome(userInput);
+            if (userInput.equalsIgnoreCase("quit")) {
+                break;
+            }
 
-        System.out.println("Is '" + userInput + "' a palindrome? " + isPalindrome);
+            boolean isPalindrome = checkPalindrome(userInput);
 
+            System.out.println("Is '" + userInput + "' a palindrome? " + isPalindrome);
+            System.out.println();
+        }
+
+        System.out.println("Thank you for using Palindrome Checker App!");
         scanner.close();
     }
 
